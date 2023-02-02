@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int count = 5;
+    int * * array  = (int* *)malloc(count * count * sizeof(int));
+    
+    for(int i = 0;i < count;i++){
+        array[i] = (int*)malloc(count * sizeof(int));
+    }
+    
+    int number = 0;
+    
+    for(int i = 0;i < count;i++){
+        for(int j = 0; j < count; j++){
+            array[i][j] = number;
+            number++;
+        }
+    }
+    
+    for(int i = 0;i < count;i++){
+        for(int j = 0; j < count; j++){
+            cout << array[i][j] << " ";
+        }
+        cout << '\n';
+    }
+    free(array);
+}
